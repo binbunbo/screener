@@ -5,15 +5,15 @@ from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
 from app import app
 from app import server
-from apps import graphY,graphQ,graphQbank,graphYbank,graphSQLQ,graphSQLY,graphYsec,graphQsec,graphYins,graphQins,ctyrel,home
-
+from apps import graphY,graphQ,graphQbank,graphYbank,graphYsec,graphQsec,graphYins,graphQins,home
+import pathlib
 
 button1 =   dbc.DropdownMenu(
             [dbc.DropdownMenuItem("Quý", href="/apps/Q"),
              dbc.DropdownMenuItem("Năm", href="/apps/Y"),
-             dbc.DropdownMenuItem("SQL Quý", href="/apps/SQLQ"),
-             dbc.DropdownMenuItem("SQL Năm", href="/apps/SQLY"),
-             dbc.DropdownMenuItem("So sánh", href="/apps/ctyrel")
+             # dbc.DropdownMenuItem("SQL Quý", href="/apps/SQLQ"),
+             # dbc.DropdownMenuItem("SQL Năm", href="/apps/SQLY"),
+             # dbc.DropdownMenuItem("So sánh", href="/apps/ctyrel")
 
             ],
         label="Công ty thường",color='success',className="m-1")
@@ -77,15 +77,15 @@ def display_page(pathname):
         return graphYins.layout
     if pathname == '/apps/insQ':
         return graphQins.layout
-    if pathname == '/apps/SQLQ':
-        return graphSQLQ.layout
-    if pathname == '/apps/SQLY':
-        return graphSQLY.layout
-    if pathname == '/apps/ctyrel':
-        return ctyrel.layout
+    # if pathname == '/apps/SQLQ':
+    #     return graphSQLQ.layout
+    # if pathname == '/apps/SQLY':
+    #     return graphSQLY.layout
+    # if pathname == '/apps/ctyrel':
+    #     return ctyrel.layout
     else:
         return home.layout
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=False)

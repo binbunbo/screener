@@ -9,10 +9,11 @@ import pandas as pd
 import requests
 import dash_bootstrap_components as dbc
 import numpy as np
+import pathlib
 
-from app import server
-
-col = pd.read_excel('D:/Data/6.Python/project2/VND-col.xlsx')
+PATH = pathlib.Path(__file__).parent
+DATA_PATH = PATH.joinpath("../assets/col").resolve()
+col = pd.read_excel(DATA_PATH.joinpath("VND-col.xlsx"))
 col1 = ['gp', 'op', 'op1', 'EBT', 'pretax_inc', 'net_income', 'ni_parent', 'core_e']
 col2 = ['rev', 'gp', 'op', 'EBT', 'pretax_inc', 'net_income', 'ni_parent', 'core_e', 'rev_4Q', 'gp_4Q', 'op_4Q',
         'pretax_inc_4Q', 'net_income_4Q', 'ni_parent_4Q', 'core_e_4Q']

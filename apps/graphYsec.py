@@ -12,8 +12,10 @@ import requests
 import numpy as np
 import dash_bootstrap_components as dbc
 from app import server
-
-col = pd.read_excel('D:/Data/6.Python/project2/VND-col-sec.xlsx')
+import pathlib
+PATH = pathlib.Path(__file__).parent
+DATA_PATH = PATH.joinpath("../assets/col").resolve()
+col = pd.read_excel(DATA_PATH.joinpath("VND-col-sec.xlsx"))
 # col1 = ['gp', 'op', 'op1', 'EBT', 'pretax_inc', 'net_income', 'ni_parent', 'core_e']
 # col3 = ['rev', 'gp', 'op', 'EBT', 'pretax_inc', 'net_income', 'ni_parent', 'core_e']
 def get_mc(ticker):
